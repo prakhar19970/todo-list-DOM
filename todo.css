@@ -1,0 +1,60 @@
+#form {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+.todo-outer-box {
+  background: #915911ba;
+  margin-left: auto;
+  margin-right: auto;
+}
+.todo-box {
+  width: 79%;
+  background: #915911ba;
+  margin-left: auto;
+  margin-right: auto;
+  height: 25rem;
+  overflow: scroll;
+}
+.header-area {
+  background-color: rgb(73, 51, 21);
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+}
+.list {
+  list-style-type: none;
+  padding: 0%;
+}
+.delete-button:hover {
+  background-color: red;
+  color: white;
+}
+.delete-button {
+}
+.list-item:nth-child(odd) {
+  width: auto;
+  height: auto;
+  /* background-color: rgb(83, 51, 10); */
+  font-size: x-large;
+  color: maroon;
+  display: flex;
+  margin: 3%;
+  padding: 2%;
+  justify-content: space-between;
+  font-size: x-large;
+}
+.list-item:nth-child(even) {
+  width: auto;
+  height: auto;
+  /* background-color: rgb(226, 164, 83); */
+  display: flex;
+  margin: 3%;
+  padding: 2%;
+  justify-content: space-between;
+  font-size: x-large;
+  color: white;
+}
