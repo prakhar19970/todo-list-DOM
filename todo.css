@@ -3,7 +3,14 @@
   margin-right: auto;
   display: flex;
   justify-content: space-evenly;
+  padding: 12px;
 }
+.task-box {
+  border-radius: 18px;
+  border: none;
+  text-align: center;
+}
+
 .todo-outer-box {
   background: #915911ba;
   margin-left: auto;

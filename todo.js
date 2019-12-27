@@ -81,8 +81,6 @@ function addTask(obj) {
         alert("empty")
     }
     document.getElementById('newtask').value = "";
-    // localStorage.setItem('tasks', JSON.stringify(taskListitems));
-    // refreshDom();
     update();
 }
 
@@ -91,8 +89,6 @@ function deleteTask(obj) {
     var itemtobedeleted = obj.target.parentNode;
     var x = itemtobedeleted.attributes.position.value;
     taskListitems.splice(x, 1);
-    // localStorage.setItem('tasks', JSON.stringify(taskListitems));
-    // refreshDom();
     update();
 }
 
@@ -101,35 +97,39 @@ function checkTask(obj) {
     var parent = obj.target.parentNode;
     elementStatus = parent.attributes.position.value;
     console.log(parent.firstChild.checked);
-    taskListitems[elementStatus].status = parent.firstChild.checked
-    // localStorage.setItem('tasks', JSON.stringify(taskListitems));
-    // refreshDom();
+    taskListitems[elementStatus].status = parent.firstChild.checked;
     update();
 }
 
 var startPos = 0;
 var endPos = 0;
+
 function dragStart(obj) {
     startPos = obj.srcElement;
 }
+
 function dragOver(obj) {
     obj.preventDefault();
     endPos = obj.target;
 }
 
 function dragStop(obj) {
-    var s = startPos.attributes.position.value;
-    var x = endPos.attributes.position.value;
+    var startIndex = startPos.attributes.position.value;
+    var endIndex = endPos.attributes.position.value;
 
-    console.log(s);
-    console.log(x);
-    console.log(startPos.childNodes[1].textContent);
-    console.log(endPos.childNodes[1].textContent);
-    taskListitems[s].task = endPos.childNodes[1].textContent;
-    taskListitems[s].status = endPos.childNodes[0].checked;
+    //shifting
+    var splicedArray = taskListitems.splice(startIndex, 1);
+    taskListitems.splice(endIndex, 0, splicedArray[0]);
 
-    taskListitems[x].task = startPos.childNodes[1].textContent;
-    taskListitems[x].status = startPos.childNodes[0].checked;
+    //swapping
+    // console.log(s);
+    // console.log(x);
+    // console.log(startPos.childNodes[1].textContent);
+    // console.log(endPos.childNodes[1].textContent);
+    // taskListitems[s].task = endPos.childNodes[1].textContent;
+    // taskListitems[s].status = endPos.childNodes[0].checked;
+
+    // taskListitems[x].task = startPos.childNodes[1].textContent;
+    // taskListitems[x].status = startPos.childNodes[0].checked;
     update();
-
 }
