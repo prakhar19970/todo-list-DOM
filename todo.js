@@ -18,14 +18,13 @@ function update() {
 
 function refreshDom() {
     counter = 0;
-    while (itemList.hasChildNodes()) {
-        itemList.removeChild(itemList.lastChild);
+    if (itemList.hasChildNodes()) {
+        itemList.innerHTML = '';
     }
     const taskArray = JSON.parse(localStorage.getItem('tasks'));
-
     for (task of taskArray) {
         // console.log(task);
-
+        // localStorage.setItem('tasks', JSON.stringify());
         creatingItemblock(task);
     }
 }
