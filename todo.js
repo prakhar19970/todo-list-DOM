@@ -21,7 +21,7 @@ function refreshDom() {
     if (itemList.hasChildNodes()) {
         itemList.innerHTML = '';
     }
-    const taskArray = JSON.parse(localStorage.getItem('tasks'));
+    const taskArray = JSON.parse(localStorage.getItem('tasks')) || localStorage.setItem('tasks', JSON.stringify([]));
     for (task of taskArray) {
         // console.log(task);
         // localStorage.setItem('tasks', JSON.stringify());
