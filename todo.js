@@ -1,10 +1,10 @@
 
-//localStorage.setItem('tasks', JSON.stringify([]));
+
 
 
 var formelements = document.getElementById('form');
 var itemList = document.getElementById('task-list');
-let taskListitems = JSON.parse(localStorage.getItem('tasks'));
+let taskListitems = JSON.parse(localStorage.getItem('tasks')) || localStorage.setItem('tasks', JSON.stringify([]));
 let counter = 0;
 refreshDom();
 
